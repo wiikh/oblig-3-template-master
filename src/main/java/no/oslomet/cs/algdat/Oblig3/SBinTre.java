@@ -60,8 +60,7 @@ public class SBinTre<T> {
         return false;
     }
 
-    public int antall() {
-        return antall;
+    public int antall() {return antall;
     }
 
     public String toStringPostOrder() {
@@ -115,7 +114,21 @@ public class SBinTre<T> {
     }
 
     public int antall(T verdi) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+        Node<T> p = rot;
+        int antallVerdi = 0;
+
+         while (p!=null) {
+             int c = comp.compare(verdi, p.verdi);
+             if (c < 0) {
+                 p = p.venstre;
+             }else{
+                 if (c == 0) {
+                     antallVerdi++;
+                 }
+                 p = p.høyre;
+             }
+         }
+         return antallVerdi;
     }
 
     public void nullstill() {
