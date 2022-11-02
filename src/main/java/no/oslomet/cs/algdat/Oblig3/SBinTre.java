@@ -3,6 +3,7 @@ package no.oslomet.cs.algdat.Oblig3;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Objects;
 import java.util.StringJoiner;
 
 public class SBinTre<T> {
@@ -114,18 +115,18 @@ public class SBinTre<T> {
     }
 
     public int antall(T verdi) {
-        Node<T> p = rot;
-        int antallVerdi = 0;
+        Node<T> p=rot;
+        int antallVerdi=0;
 
          while (p!=null) {
-             int c = comp.compare(verdi, p.verdi);
-             if (c < 0) {
-                 p = p.venstre;
+             int c=comp.compare(verdi, p.verdi);
+             if (c<0) {
+                 p=p.venstre;
              }else{
-                 if (c == 0) {
+                 if (c==0) {
                      antallVerdi++;
                  }
-                 p = p.høyre;
+                 p=p.høyre;
              }
          }
          return antallVerdi;
@@ -136,11 +137,20 @@ public class SBinTre<T> {
     }
 
     private static <T> Node<T> førstePostorden(Node<T> p) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+        Objects.requireNonNull(p);
+        while(true){
+            if(p.venstre!=null){
+                p=p.venstre;
+            }else if(p.høyre!=null){
+                p=p.høyre;
+            }else{
+                return p;
+            }
+        }
     }
 
     private static <T> Node<T> nestePostorden(Node<T> p) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+        return p;
     }
 
     public void postorden(Oppgave<? super T> oppgave) {
