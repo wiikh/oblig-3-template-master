@@ -92,6 +92,18 @@ public class SBinTre<T> {
             c=comp.compare(verdi, p.verdi);
             p=c<0?p.venstre:p.høyre;
         }
+
+        p=new Node<>(verdi, q);
+
+        if(q==null){
+            rot=p;
+        } else if(c<0){
+            q.venstre=p;
+        } else{
+            q.høyre=p;
+        }
+        antall++;
+        return true;
     }
 
     public boolean fjern(T verdi) {
