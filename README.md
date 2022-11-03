@@ -24,6 +24,6 @@ I oppgave 5 for serialize() brukte jeg en kø og while-løkke for å ta ut verdi
 inn i arrayet, samt høyre- og venstrebarn inn i køen dersom de finnes. I deserialize() brukte jeg er for-løkke som
 går gjennom treet og bruker leggInn() for hver nye verdi. 
 
-
+I oppgave 6 slet jeg veldig med å fullføre, så den har jeg fjernet helt, og ikke tatt med. Oppgave 1-5 har passert testene.
 
 
