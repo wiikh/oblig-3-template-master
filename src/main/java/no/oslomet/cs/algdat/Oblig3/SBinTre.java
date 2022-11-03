@@ -83,19 +83,19 @@ public class SBinTre<T> {
     }
 
     public boolean leggInn(T verdi) {
-        Node<T> p=rot;
-        Node<T> q=null;
-        int c=0;
+        Node<T> p=rot; //Initialiserer p.
+        Node<T> q=null; //Initialiserer q.
+        int c=0;  //Hjelpevariabel.
 
-        while(p!=null){
+        while(p!=null){  //Sammenligner og flytter p ut av treet.
             q=p;
             c=comp.compare(verdi, p.verdi);
             p=c<0?p.venstre:p.høyre;
         }
 
-        p=new Node<>(verdi, q);
+        p=new Node<>(verdi, q);  //Oppretter ny node for p
 
-        if(q==null){
+        if(q==null){  //
             rot=p;
         } else if(c<0){
             q.venstre=p;
@@ -137,8 +137,8 @@ public class SBinTre<T> {
     }
 
     private static <T> Node<T> førstePostorden(Node<T> p) {
-        Objects.requireNonNull(p);
-        while(true){
+        Objects.requireNonNull(p);  //p kan ikke være null
+        while(true){  //
             if(p.venstre!=null){
                 p=p.venstre;
             }else if(p.høyre!=null){
@@ -150,7 +150,16 @@ public class SBinTre<T> {
     }
 
     private static <T> Node<T> nestePostorden(Node<T> p) {
-        return p;
+        Node<T> f=p.forelder; //IInitialiserer f til p.forelder.
+
+        if(f==null){
+            return null;
+        }
+        if(f.høyre==p || f.høyre==null){
+            return f;
+        }else{
+            return førstePostorden(f.høyre);
+        }
     }
 
     public void postorden(Oppgave<? super T> oppgave) {
