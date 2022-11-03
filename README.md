@@ -20,6 +20,9 @@ I oppgave 4, postorden, kalte jeg på førstePostorden og lot første være den.
 gjennom nestePostorden med første som parameter og utfører oppgave så lenge forelder til første ikke er null.
 I postordenRecursive kaller jeg den selv for p sitt venstre- og høyrebarn og utfører oppgaven. 
 
+I oppgave 5 for serialize() brukte jeg en kø og while-løkke for å ta ut verdien av toppen av køa, og legge den 
+inn i arrayet, samt høyre- og venstrebarn inn i køen dersom de finnes. I deserialize() brukte jeg er for-løkke som
+går gjennom treet og bruker leggInn() for hver nye verdi. 
 
 
 

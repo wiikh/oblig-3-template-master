@@ -183,10 +183,10 @@ public class SBinTre<T> {
 
     public ArrayList<T> serialize() {
         ArrayList<T> subTreeArray = new ArrayList<>();  //Initialiserer array hvor verdier legges inn.
-        Queue<Node<T>> queue = new LinkedList<>(); //Initialiserer kø
+        Queue<Node<T>> queue = new LinkedList<>(); //Initialiserer kø.
         queue.add(rot);
 
-        while(!queue.isEmpty()){
+        while(!queue.isEmpty()){  //Mens treet ikke er tomt.
             Node<T> p=queue.remove();
             subTreeArray.add(p.verdi);
 
@@ -201,7 +201,12 @@ public class SBinTre<T> {
     }
 
     static <K> SBinTre<K> deserialize(ArrayList<K> data, Comparator<? super K> c) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+        SBinTre<K> tre=new SBinTre<>(c);  //Initialiserer binærtre.
+
+        for(K verdi:data){  //Legger inn verdier i treet for hver ny verdi.
+            tre.leggInn(verdi);
+        }
+        return tre;
     }
 
 
