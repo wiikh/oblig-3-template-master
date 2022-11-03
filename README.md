@@ -16,6 +16,10 @@ Oppgave 3 løste jeg ved i førstePostden å sjekke om p, p.høyre og p.venstre 
 nestePostorden og satte f til p.forelder. Sjekket om f.høyre er null eller p, kaller på førstePostorden dersom 
 det ikke er det. 
 
+I oppgave 4, postorden, kalte jeg på førstePostorden og lot første være den. Deretter brukte jeg en while-løkke som løper
+gjennom nestePostorden med første som parameter og utfører oppgave så lenge forelder til første ikke er null.
+I postordenRecursive kaller jeg den selv for p sitt venstre- og høyrebarn og utfører oppgaven. 
+
 
 
 
